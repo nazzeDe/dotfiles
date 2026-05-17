@@ -8,9 +8,9 @@ keychain --eval --quiet | source
 
 set -gx https_proxy http://127.0.0.1:7897
 # 将所有 pycache 统一存放于用户缓存目录下
-set -gx PYTHONPYCACHEPREFIX $HOME/.cache/python-pycache
+set -gx PYTHONPYCACHEPREFIX $HOME/.cache/pycache
 # pytest
-set -gx PYTEST_ADDOPTS "-o cache_dir=$HOME/.cache/pytest_cache"
+set -gx PYTEST_ADDOPTS "-o cache_dir=$HOME/.cache/pytest"
 
 
 source /usr/share/doc/pkgfile/command-not-found.fish
