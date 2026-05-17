@@ -1,0 +1,9 @@
+[Unit]
+Description=Timer for shutdown notification
+
+[Timer]
+OnCalendar=*-*-* 22:50:00
+Persistent=false
+
+[Install]
+WantedBy=timers.target

@@ -1,0 +1,7 @@
+[Unit]
+Description=Sync Documents and Music to Ventoy USB when mounted
+
+[Service]
+Type=oneshot
+ExecStart=/home/nazze/sh/ventoy_sync.sh
+Restart=no

@@ -1,0 +1,6 @@
+[Unit]
+Description=Scheduled shutdown at 22:58
+
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/systemctl poweroff

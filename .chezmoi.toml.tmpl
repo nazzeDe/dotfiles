@@ -1,0 +1,24 @@
+encryption = "age"
+[age]
+    identity = "{{ .chezmoi.rawHomeDir }}/Documents/key.txt"
+    recipient = "age1584ku4g0m60qlg7gf0d7jyy38m94rnwwn42w0w3vjypg89ap8asqqs03hn"
+
+[edit]
+  command = "nvim"
+  apply = true
+
+[diff]
+  pager = "delta"
+
+[git]
+  autoCommit = true
+  autoPush = true
+
+[merge]
+  command = "nvim"
+  args = [
+      "-d",
+      {{ printf "%q" "{{ .Destination }}" }},
+      {{ printf "%q" "{{ .Source }}" }},
+      {{ printf "%q" "{{ .Target }}" }},
+  ]

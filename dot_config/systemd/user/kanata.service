@@ -1,0 +1,12 @@
+[Unit]
+Description=Kanata Keyboard Remap Daemon
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/kanata -c /home/nazze/.config/kanata/kanata.kbd
+Restart=on-failure
+RestartSec=3
+Nice=-20
+
+[Install]
+WantedBy=default.target

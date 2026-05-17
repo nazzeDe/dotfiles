@@ -1,0 +1,8 @@
+[Unit]
+Description=Timer to poweroff at 22:55 daily
+
+[Timer]
+OnCalendar=*-*-* 22:55:00
+
+[Install]
+WantedBy=timers.target

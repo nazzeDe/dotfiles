@@ -1,0 +1,16 @@
+[Unit]
+Description=Fcitx5 Input Method Framework
+PartOf=graphical-session.target
+After=graphical-session.target
+Wants=graphical-session.target
+
+[Service]
+Type=dbus
+BusName=org.fcitx.Fcitx5
+ExecStart=/usr/bin/fcitx5
+ExecReload=/usr/bin/fcitx5-remote -r
+RestartSec=3
+Restart=on-failure
+
+[Install]
+WantedBy=default.target

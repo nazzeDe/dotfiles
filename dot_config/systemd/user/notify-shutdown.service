@@ -1,0 +1,6 @@
+[Unit]
+Description=Popup shutdown notification
+
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/notify-send "System will shutdown at 22:58"

@@ -1,0 +1,28 @@
+-- https://wiki.hypr.land/Configuring/Start/
+
+------------------
+---- MONITORS ----
+------------------
+
+{{- if eq .chezmoi.hostname "suis"}}
+require("conf/device/asusx")
+
+{{- else}}
+hl.monitor({
+    output   = "",
+    mode     = "highres@highrr",
+    position = "auto",
+    scale    = 1,
+})
+{{- end}}
+
+
+---------------------
+---- LOAD MODULES ---
+---------------------
+
+require("conf/startup")
+require("conf/keybinds")
+require("conf/decoration")
+require("conf/rules")
+require("noctalia/colors")

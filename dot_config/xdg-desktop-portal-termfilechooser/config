@@ -1,0 +1,1 @@
+cmd=kitty --class="yazi-picker" -e yazi --chooser-file=%f

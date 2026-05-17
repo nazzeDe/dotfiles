@@ -1,0 +1,10 @@
+services:
+  music-tag:
+    image: xhongc/music_tag_web:latest
+    container_name: music-tag-web
+    ports:
+      - "8002:8002"
+    volumes:
+      - ~/Music:/app/media:rw
+      - ~/.config/docker-compose/music_tag_web/data:/app/data
+    restart: unless-stopped

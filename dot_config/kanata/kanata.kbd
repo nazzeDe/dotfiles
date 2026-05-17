@@ -1,0 +1,3 @@
+(defsrc esc caps lctl rsft)
+(deflayer default 
+  F15 lctl esc caps )

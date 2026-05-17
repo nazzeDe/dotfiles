@@ -1,0 +1,62 @@
+[list]
+selection_color = "#000000"
+selection_bg = "#50FA7B"
+border_color = "Red"
+header_color = "#FF79C6"
+column_head_color = "Black"
+column_head_bg = "Green"
+column_order_color = "Red"
+column_order_color_bg = "Blue"
+filter_color = "#FF55FF"
+filter_help_color = "#BD93F9"
+filter_show_help = true
+
+[add_torrent]
+focus_color = "Cyan"
+border_color = "Magenta"
+
+[torrent_details]
+border_color = "#F1FA8C"
+info_border_color = "#BD93F9"
+timing_border_color = "#FF79C6"
+bitfield_border_color = "#50FA7B"
+header_color = "LightBlue"
+label_color = "Gray"
+value_color = "White"
+bitfield_piece_downloaded_color = "Green"
+bitfield_piece_missing_color = "DarkGray"
+selection_color = "Black"
+selection_bg = "#8BE9FD"
+column_head_color = "White"
+column_head_bg = "Blue"
+
+[server_stats]
+border_color = "Green"
+header_color = "#50FA7B"
+
+[debug]
+border_color = "White"
+header_color = "DarkGray"
+system_color = "Cyan"
+server_color = "Magenta"
+error_color = "Red"
+selection_color = "Black"
+selection_bg = "White"
+
+[help]
+border_color = "Blue"
+header_color = "#8BE9FD"
+
+[remove_torrent]
+border_color = "#FF5555"
+
+[reannounce]
+border_color = "Yellow"
+
+[select_dir]
+border_color = "LightMagenta"
+focus_color = "#F1FA8C"
+
+[rename_move]
+border_color = "LightBlue"
+focus_color = "Green"

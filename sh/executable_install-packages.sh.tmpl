@@ -1,0 +1,183 @@
+#! /usr/bin/env bash
+
+# fish command: display manual installed package (display official package use pacman -Qne)
+# for pkg in (pacman -Qm | awk '{print $1}')
+#      set desc (pacman -Qi $pkg | awk -F': ' '/^描述/ || /^Description/ {print $2}')
+#      echo "$pkg # $desc"
+# end
+
+PACKAGES=(
+    openssh # SSH protocol implementation for remote login (远程连接与安全传输)
+    pacman-contrib # Contributed scripts and tools for pacman systems (清理缓存等实用脚本)
+    iwd # Internet Wireless Daemon (无线 Wi-Fi 驱动/管理，若只插网线则不需要)
+    snapper # A tool for managing BTRFS and LVM snapshots (Btrfs 快照备份工具)
+    grub-btrfs-support # Support package for enabling grub-btrfs support (在 GRUB 中直接引导快照)
+    exfatprogs # exFAT filesystem userspace utilities (需要读写 exFAT 格式的 U 盘时安装)
+    ufw # Uncomplicated and easy to use CLI tool for managing a netfilter firewall (简易防火墙)
+    git # the fast distributed version control system
+
+    # 核心音频路由组件 一般系统默认装
+    # pipewire-alsa 
+    # pipewire-pulse 
+    # wireplumber 
+
+    # desktop
+    hyprland # wayland桌面环境
+    hyprshot # Hyprland screenshot utility
+    xorg-xwayland # run X clients under wayland (兼容老旧 X11 软件)
+    noctalia-shell # A sleek and minimal desktop shell thoughtfully crafted for Wayland
+    xdg-desktop-portal-hyprland # xdg-desktop-portal backend for hyprland (屏幕分享/弹窗核心)
+    xdg-desktop-portal-gtk # A backend implementation for xdg-desktop-portal using GTK (通用弹窗后端)
+    greetd-tuigreet # a console UI greeter for greetd (TUI启动系统后的图形登录界面)
+    wlsunset # Day/night gamma adjustments for Wayland compositors (护眼模式/夜间红光过滤)
+    ddcutil # Query and change Linux monitor settings using DDC/CI and USB
+
+    # niri # A scrollable-tiling Wayland compositor
+    # xwayland-satellite # Xwayland outside your Wayland (特定架构下的 Xwayland 隔离扩展,niri 需要装)
+
+    # 体验增强 
+    paru # Feature packed AUR helper
+    tailscale # A mesh VPN that makes it easy to connect your devices (异地组网工具)
+    easyeffects # Audio Effects for Pipewire applications (音频全局调音/降噪，如不用麦克风降噪则不需要)
+    power-profiles-daemon # Makes power profiles handling available over D-Bus (笔记本省电/电源模式切换)
+    rtkit # Realtime Policy and Watchdog Daemon (赋予音频线程高优先级，防止声音卡顿)
+    # plymouth # Graphical boot splash screen (开机动画)
+    wl-clipboard # Command-line copy/paste utilities for Wayland (剪贴板同步)
+    xdg-user-dirs # Manage user directories like ~/Desktop and ~/Music (生成家目录标准文件夹)
+    aerc # Email Client for your Terminal
+    age # A simple, modern and secure file encryption tool
+    android-tools # Android platform tools
+    aria2 # Download utility that supports HTTP(S), FTP, BitTorrent, and Metalink
+    awww # An Answer to your Wayland Wallpaper Woes
+    bat # Cat clone with syntax highlighting and git integration
+    bottom # A graphical process/system monitor
+    bpftrace # High-level tracing language for Linux eBPF
+    brave-bin # Web browser that blocks ads and trackers by default
+    chafa # Image-to-text converter supporting a wide range of symbols and palettes
+    chezmoi # Manage your dotfiles across multiple machines
+    czkawka-gui # Multi functional app to find duplicates, empty folders, similar images etc
+    diffutils # Utility programs used for creating patch files
+    dos2unix # Text file format converter
+    eza # A modern replacement for ls (community fork of exa)
+    fastfetch # A feature-rich and performance oriented neofetch like system information tool
+    fcitx5 # Next generation of fcitx
+    fcitx5-configtool # Configuration Tool for Fcitx5
+    fcitx5-gtk # Fcitx5 gtk im module and glib based dbus client library
+    fcitx5-qt # Fcitx5 Qt Library (Qt5 & Qt6 integrations)
+    fcitx5-rime # RIME support for Fcitx5
+    fd # Simple, fast and user-friendly alternative to find
+    fish # Smart and user friendly shell intended mostly for interactive use
+    fzf # Command-line fuzzy finder
+    git-delta # Syntax-highlighting pager for git and diff output
+    github-cli # The GitHub CLI
+    glow # Command-line markdown renderer
+    gulp # The streaming build system
+    imv # Image viewer for Wayland and X11
+    jdk-openjdk # OpenJDK Java 26 development kit
+    jpegoptim # Jpeg optimisation utility
+    keychain # A front-end to ssh-agent
+    kitty # A modern, hackable, featureful, OpenGL-based terminal emulator
+    less # A terminal based program for viewing text files
+    libreoffice-still-zh-cn # Chinese (simplified) language pack for LibreOffice still
+    localsend # An open source cross-platform alternative to AirDrop
+    man-db # A utility for reading man pages
+    man-pages # Linux man pages
+    neovim-nightly-bin # Fork of Vim aiming to improve user experience, plugins, and GUIs
+    noto-fonts-cjk # Google Noto CJK fonts
+    wqy-zenhei # A Hei Ti Style (sans-serif) Chinese Outline Font
+    nvtop # GPUs process monitoring for AMD, Intel and NVIDIA
+    obsidian # A powerful knowledge base that works on top of a local folder of plain text Markdown files
+    optipng # Compresses PNG files to a smaller size, without losing any information
+    ouch # a command line utility for easily compressing and decompressing files and directories
+    oxipng # A lossless PNG compression optimiser
+    perl # A highly capable, feature-rich programming language
+    perl-image-exiftool # Read and write EXIF information
+    pkgfile # A tool to search for files in official repository packages
+    python-requests # Python HTTP for Humans
+    ripgrep # A search tool that combines the usability of ag with the raw speed of grep
+    s-nail # Environment for sending and receiving mail
+    starship # The cross-shell prompt for astronauts
+    syncthing # Open Source Continuous Replication / Cluster Synchronization Thing
+    tealdeer # A fast tldr client in Rust
+    telegram-desktop # Official Telegram Desktop client
+    termusic # Music Player TUI written in Rust
+    tree # A directory listing program displaying a depth indented list of files
+    unrar # The RAR uncompression program
+    unzip # For extracting and viewing files in .zip archives
+    w3m # Text-based Web browser as well as pager
+    wget # Network utility to retrieve files from the web
+    yazi # Blazing fast terminal file manager written in Rust, based on async I/O
+    zen-browser-bin # Performance oriented Firefox-based web browser
+    zoxide # A smarter cd command for your terminal
+    rsync # A fast and versatile file copying tool for remote and local files
+        
+    # steam # Valve's digital software delivery system
+    # ryujinx # Experimental Nintendo Switch Emulator written in C#
+    # sunshine # Self-hosted game stream host for Moonlight
+    # lutris # Open Gaming Platform
+    # protontricks # Run Winetricks commands for Steam Play/Proton games
+    # protonup-qt # Install and manage Proton-GE and Luxtorpeda for Steam and Wine-GE for Lutris
+
+    # dev
+    python # The Python programming language
+    claude-code # An agentic coding tool that lives in your terminal
+    dbeaver # Free universal SQL Client for developers and database administrators
+    strace # A diagnostic, debugging and instructional userspace tracer
+    tokei # A blazingly fast CLOC (Count Lines Of Code) program
+    zed # A high-performance, multiplayer code editor from the creators of Atom and Tree-sitter
+    uv # An extremely fast Python package installer and resolver written in Rust
+    # valgrind # Tool to help find memory-management problems in programs
+    # verilator # The fastest free Verilog HDL simulator
+    # yosys # A framework for RTL synthesis
+
+    # qemu-user-static # QEMU static user mode emulation (跨架构容器/开发编译需要)
+    # qemu-user-static-binfmt # Binary format rules for QEMU static user mode emulation (同上)
+)
+
+AURPACKAGES=(
+    # work tool
+    jmtpfs # FUSE and libmtp based filesystem for accessing MTP (Media Transfer Protocol) devices
+    chsrc # A cli tool to change source for every software on every platform 换源工具
+    clash-geoip # GeoIP files for Clash 为Clash网络代理客户端提供地理位置 IP 数据库
+    clash-verge-rev-bin # Continuation of Clash Verge | A Clash Meta GUI based on Tauri  VPN工具
+    xdg-desktop-portal-termfilechooser-hunkyburrito-git # xdg-desktop-portal backend for your favorite terminal file chooser (hunkyburrito fork) 终端文件选择器 
+    kanata # Bring the customizability of a QMK board to any keyboard near you 自定义键映射
+    # imhex-bin # A Hex Editor for Reverse Engineers
+    visual-studio-code-bin # Visual Studio Code (vscode)
+    # logisim-evolution-bin # An educational tool for designing and simulating digital logic circuits
+
+    # daily 
+    linuxqq # New Linux QQ based on Electron
+    wechat-universal-bwrap # WeChat (Universal) with bwrap sandbox 微信
+
+    ani2xcursor # Convert Windows animated cursor themes to Linux Xcursor format
+    hei-cursors-git # LuoXiaoHei Cursor Theme.
+    baidunetdisk-bin # Baidu Net Disk - a cloud storage client (Linux Version).
+    downpour # A terminal UI for torrent clients
+    kazumi-bin # 基于自定义规则的番剧采集APP，支持流媒体在线观看，支持弹幕
+    koodo-reader-bin # A modern ebook manager and reader with sync and backup capacities
+    # micyou-bin # Turn your Android device into a high-quality wireless microphone for your PC
+    # upscayl-bin # Free and Open Source AI Image Upscaler
+
+    # game
+    # osu-lazer-bin # The future of osu! and the beginning of an open era!
+    # osu-mime # Provides MIME types for osu! file formats
+)
+
+{{ if (eq .chezmoi.osRelease.idLike "arch") }}
+
+echo -n "➔ 正在同步官方源并检查系统软件包... "
+# 丢弃标准输出，利用进程替换过滤掉 Stderr 中的 skipping 警告
+sudo pacman -Syu --needed --noconfirm "${PACKAGES[@]}" >/dev/null 2> >(grep -v -E "is up to date|skipping" >&2)
+echo "完成"
+
+if command -v paru &> /dev/null; then
+    echo -n "➔ 正在验证并构建 AUR 软件包... "
+    # 重定向标准输出，并过滤 Stderr 里的编译无关警告
+    paru -S --needed --noconfirm "${AURPACKAGES[@]}" >/dev/null 2> >(grep -v -E "is up to date|skipping|Validating|Retrieving" >&2)
+    echo "完成"
+else
+    echo "⚠️ 错误: 未找到 paru 命令，无法自动安装 AUR 软件包。"
+fi
+
+{{ end }}

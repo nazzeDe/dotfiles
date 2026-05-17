@@ -1,0 +1,9 @@
+[Unit]
+Description=Watch Ventoy mount point for sync
+
+[Path]
+PathExists=/run/media/nazze/Ventoy
+Unit=sync-ventoy.service
+
+[Install]
+WantedBy=default.target

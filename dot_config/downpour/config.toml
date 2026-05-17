@@ -1,0 +1,40 @@
+[theme.list]
+border_color = "Blue"
+
+[add_torrent]
+default_path = "~/Downloads/"
+show_hidden = false
+
+[list]
+on_open = "./open_yazi.sh"
+columns = [
+    ["Status", "Name", "Progress", "Size", "DownSpeed", "UpSpeed", "ETA"],
+    ["Status", "Name", "Downloaded", "Uploaded", "Ratio", "Connected", "Seeders", "Leechers"],
+    ["Status", "Name", "Location", "Added", "LastActive"]
+]
+
+# A Local Server (Internal Engine)
+[[servers]]
+name = "Local Engine"
+server_type = "Local"
+default_download_dir = "~/Downloads/downpour-local"
+polling_rate = 500
+autoconnect = true
+address = "local"
+
+# A Remote Transmission Server
+[[servers]]
+name = "My Production Server"
+address = "http://192.168.1.100:9091"
+server_type = "Transmission"
+username = "nazze"
+password = "1115"
+polling_rate = 500
+autoconnect = true
+on_complete = "/usr/local/bin/notify.sh"
+path_substitutions = [
+    ["/downloads", "/mnt/nas/downloads"],
+    ["/incomplete", "/mnt/nas/incomplete"]
+]
+# Per-server theme override (can be path or inline)
+# theme = "path/to/dark_theme.toml"

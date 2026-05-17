@@ -1,0 +1,18 @@
+[[mgr.prepend_keymap]]
+on = [ "g", "m" ]
+run = "cd /run/media/nazze"
+desc = "Go to /run/media/nazze"
+
+[[mgr.prepend_keymap]]
+on = [ "g", "r" ]
+run = "cd /"
+desc = "Go to /"
+
+[[mgr.prepend_keymap]]
+on = [ "g", "t" ]
+run = "cd ~/.local/share/Trash"
+desc = "Go to Trash"
+[[input.prepend_keymap]]
+on = "<Esc>"
+run = "close"
+desc = "Cancel input"
