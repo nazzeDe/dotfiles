@@ -82,10 +82,10 @@ hl.config({
 })
 
 -- Cursor
-hl.env("XCURSOR_THEME", "Hei")
+-- hl.env("HYPRCURSOR_THEME", "Hei")
+-- hl.env("HYPRCURSOR_SIZE", "48")
+-- hl.env("XCURSOR_THEME", "Hei")
+-- hl.env("XCURSOR_SIZE", "48")
 
 hl.config({
-    cursor = {
-        -- no_hardware_cursors = true,  -- uncomment if cursor is invisible
-    },
 })
