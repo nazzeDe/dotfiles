@@ -82,10 +82,11 @@ hl.config({
 })
 
 -- Cursor
--- hl.env("HYPRCURSOR_THEME", "Hei")
--- hl.env("HYPRCURSOR_SIZE", "48")
--- hl.env("XCURSOR_THEME", "Hei")
--- hl.env("XCURSOR_SIZE", "48")
+hl.env("HYPRCURSOR_THEME", "Hei")
+hl.env("HYPRCURSOR_SIZE", "64")
+
+hl.env("XCURSOR_THEME", "Hei")
+hl.env("XCURSOR_SIZE", "64")
 
 hl.config({
 })
