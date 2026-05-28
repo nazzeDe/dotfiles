@@ -89,4 +89,7 @@ hl.env("XCURSOR_THEME", "Hei")
 hl.env("XCURSOR_SIZE", "64")
 
 hl.config({
+    cursor = {
+        -- no_hardware_cursors = true,  -- uncomment if cursor is invisible
+    },
 })

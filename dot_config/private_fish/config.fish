@@ -4,11 +4,9 @@ end
 
 starship init fish | source
 zoxide init fish | source
+keychain --eval --quiet | source
 
-if status --is-interactive
-keychain --eval --quiet -Q orangestar suis | source
-end
-
+set -gx https_proxy http://127.0.0.1:7897
 # 将所有 pycache 统一存放于用户缓存目录下
 set -gx PYTHONPYCACHEPREFIX $HOME/.cache/pycache
 # pytest
